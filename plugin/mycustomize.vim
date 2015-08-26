@@ -6,7 +6,7 @@ imap <C-c> //----- -----//<Esc>bhs
 nmap <S-f> : call InsertFlow()<CR>
 func! InsertFlow() 
 	if &filetype=='python'
-		exec "normal IFlow('',\<CR>\<BS>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Right>\<Right>"
+		exec "normal o\<CR>Flow('',\<CR>\<BS>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Right>\<Right>"
 	endif
 endfunc
 
