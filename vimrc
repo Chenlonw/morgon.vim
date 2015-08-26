@@ -97,3 +97,6 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 "========================================
+
+"You Complete me
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
