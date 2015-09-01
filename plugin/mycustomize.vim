@@ -10,6 +10,10 @@ func! InsertFlow()
 	endif
 endfunc
 
+imap <C-s> ${SOURCES[<++>]}
+imap <C-t> ${TARGETS[<++>]}
+
+"""""""""""""""""""""
 vmap <C-r> :call InsertComment()<CR>
 func! InsertComment()
 	if &filetype=='c'
