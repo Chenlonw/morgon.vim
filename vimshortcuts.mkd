@@ -21,6 +21,8 @@
 
 #### *SConstruct*
 + insert a `Flow ( )` by `Shift+f`
++ insert a `Plot ( )` by `Shift+p`
++ insert a `Result ( )` by `Shift+r`
 + excute a scons by `ctrl+s`
 + set filetype as Python by `ctrl+p`
 

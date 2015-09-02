@@ -10,6 +10,20 @@ func! InsertFlow()
 	endif
 endfunc
 
+nmap <S-p> : call InsertPlot()<CR>
+func! InsertPlot() 
+	if &filetype=='python'
+		exec "normal o\<CR>Plot('<++>','<++>')\<Esc>"
+	endif
+endfunc
+
+nmap <S-r> : call InsertResult()<CR>
+func! InsertResult() 
+	if &filetype=='python'
+		exec "normal o\<CR>Result('<++>','<++>')\<Esc>"
+	endif
+endfunc
+
 imap <C-s> ${SOURCES[<++>]}
 imap <C-t> ${TARGETS[<++>]}
 
