@@ -3,7 +3,12 @@
 
 ---
 
-**Use this file by command `ln -s vimrc ~/.vimrc`**
+**Use this file by command 
+``` 
+git clone git@github.com:chenlonw/morgon.vim.git ~/.vim 
+cd ~/.vim
+ln -s vimrc ~/.vimrc
+```**
 
 #### *Overall shortcuts*
 + jump to `<++>` by `ctrl+j`
