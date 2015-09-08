@@ -1,39 +1,38 @@
-"==========My customising==========
-" comments
-imap <C-c> //----- -----//<Esc>bhs
+"""""""""""""""""""""""""""""""
+"    My Vim Customization     "
+"        Chenlong Wang        "
+"     clwang88@gmail.com      "
+"""""""""""""""""""""""""""""""
 
-" insert a Flow in Madagascar in SConstruct
-nmap <S-f> : call InsertFlow()<CR>
-func! InsertFlow() 
-	if &filetype=='python'
-		exec "normal o\<CR>Flow('',\<CR>\<BS>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Right>\<Right>"
-	endif
-endfunc
+""" Set File types
+autocmd BufEnter SConstruct setfiletype python 
+autocmd BufNewfile SConstruct setfiletype python                                                                                               
+autocmd BufRead *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
+autocmd BufNewFile *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <S-p> : call InsertPlot()<CR>
-func! InsertPlot() 
-	if &filetype=='python'
-		exec "normal o\<CR>Plot('<++>','<++>')\<Esc>"
-	endif
-endfunc
+""" Basic configuration
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set smartindent
+set cindent
+set autoindent
+set hls
+syntax enable
+colo desert
+set textwidth=100
+set gfn=Monospace\ 13
+autocmd InsertEnter * se cul    "under_line of current line
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nmap <S-r> : call InsertResult()<CR>
-func! InsertResult() 
-	if &filetype=='python'
-		exec "normal o\<CR>Result('<++>','<++>')\<Esc>"
-	endif
-endfunc
-
-imap <C-s> ${SOURCES[<++>]}
-imap <C-t> ${TARGETS[<++>]}
-
-"""""""""""""""""""""
+""" General Customization
 vmap <C-r> :call InsertComment()<CR>
 func! InsertComment()
 	if &filetype=='c'
 		exec "s/^/\\/\\//"
 	endif 
-	if &filetype=='cc'
+	if &filetype=='cpp'
 		exec "s/^/\\/\\//"
 	endif 
 	if &filetype=='python'
@@ -55,7 +54,7 @@ func! CancleComment()
 	if &filetype=='c'
 		exec "s/\\/\\///"
 	endif 
-	if &filetype=='cc'
+	if &filetype=='cpp'
 		exec "s/\\/\\///"
 	endif 
 	if &filetype=='python'
@@ -72,13 +71,12 @@ func! CancleComment()
 	endif 
 endfunc
 
-"instant markdowchronologicaln
-autocmd Filetype markdown,md,mkd map <C-m> :InstantMarkdownPreview<CR>
+"set file type as Python
+nmap <C-p> :call Setfilepython()<CR>
+func! Setfilepython()
+    exec "setf python"
+endfunc
 
-" Linux Vim from website
-autocmd InsertEnter * se cul    "under_line of current line
-
-"Define file title of a new file
 autocmd BufNewFile *.cc,*.cpp,*.c,*.sh exec ":call SetTitle()"
 func SetTitle()
     if &filetype == 'sh'
@@ -142,9 +140,64 @@ func SetTitle2()
 	call append(line(".")+10, "End()")
     autocmd BufNewFile * normal G
 endfunc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Set F5 to compile your c or c++ code
-map <F5> :call CompileRunGcc()<CR>
+"""customize command in Filetype Python
+augroup python 
+autocmd Filetype python : imap <C-s> ${SOURCES[<++>]}
+autocmd Filetype python : imap <C-t> ${TARGETS[<++>]}
+autocmd Filetype python : nmap <S-r> : call InsertResult()<CR>
+autocmd Filetype python : nmap <S-p> : call InsertPlot()<CR>
+autocmd Filetype python : nmap <S-f> : call InsertFlow()<CR>
+autocmd Filetype python : nmap <C-s> :call CompileSCons()<CR>
+
+func! InsertFlow() 
+	exec "normal o\<CR>Flow('',\<CR>\<BS>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Right>\<Right>"
+endfunc
+
+func! InsertResult() 
+	exec "normal o\<CR>Result('<++>','<++>')\<Esc>"
+endfunc
+
+func! InsertPlot() 
+	exec "normal o\<CR>Plot('<++>','<++>')\<Esc>"
+endfunc
+
+func! CompileSCons()
+    exec "w"
+    exec "! scons"
+endfunc
+augroup END 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""customize command in Filetype Markdown
+augroup markdown
+autocmd Filetype markdown,md,mkd map <C-m> :InstantMarkdownPreview<CR>
+augroup END 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""customize command in Filetype Latex
+augroup Latex
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'evince'
+autocmd Filetype tex : nmap <F2> : LLPStartPreview<CR>
+autocmd Filetype tex : map <C-l> : call CompileLatex()<CR>
+autocmd Filetype tex : imap <C-n> \new{}<Esc>li
+autocmd Filetype tex : imap <C-o> \old{<Esc>
+
+func! CompileLatex()
+    exec "w"
+    exec "!pdflatex %"
+endfunc                               
+augroup END 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""customize command in Filetype C or Cpp
+augroup C
+autocmd Filetype c : imap <C-c> //----- -----//<Esc>bhs
+autocmd Filetype cpp : imap <C-c> //----- -----//<Esc>bhs
+autocmd Filetype c : nmap <F5> : call CompileRunGcc()<CR>
+autocmd Filetype cpp : nmap <F5> : call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
@@ -155,34 +208,15 @@ func! CompileRunGcc()
         exec "! ./%<"
     endif
 endfunc                               
+augroup END 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-map <C-l> :call CompileLatex()<CR>
-func! CompileLatex()
-    exec "w"
-    exec "!pdflatex %"
-endfunc                               
-
+""" Miscellaneous
 map <F4> :call CompileMake()<CR>
 func! CompileMake()
     exec "w"
     exec "! make"
 endfunc
-
-nmap <C-s> :call CompileSCons()<CR>
-func! CompileSCons()
-    exec "w"
-    exec "! scons"
-endfunc
-
-"set file type as Python
-nmap <C-p> :call Setfilepython()<CR>
-func! Setfilepython()
-    exec "setf python"
-endfunc
-
-"shutcut for review
-imap <C-n> \new{}<Esc>li
-imap <C-o> \old{<Esc>
 
 func! MyToHtml(line1, line2)
   " make sure to generate in the correct format
@@ -204,3 +238,4 @@ func! MyToHtml(line1, line2)
   let g:html_use_css = old_css
 endfunc
 command! -range=% MyToHtml :call MyToHtml(<line1>,<line2>)
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
