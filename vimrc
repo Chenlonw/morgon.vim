@@ -1,7 +1,3 @@
-" The Vimrc configuration file by Chenlong Wang
-" Email : clwang88@gmail.com
-
-
 " My Vundle setup file
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -52,34 +48,6 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-
-" SetThe SConstruct as the python file type
-autocmd BufEnter SConstruct setfiletype python 
-autocmd BufNewfile SConstruct setfiletype python                                                                                               
-" markdown filetype file
-autocmd BufRead *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
-autocmd BufNewFile *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
-
-" Basic configuration
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set smartindent
-set cindent
-set autoindent
-set hls
-
-syntax enable
-colo desert
-
-set textwidth=100
-set gfn=Monospace\ 13
-
-"latex preview
-"========================================
-autocmd Filetype tex setl updatetime=1
-let g:livepreview_previewer = 'evince'
-nmap <F2> :LLPStartPreview<cr>
 
 " Latex suite related
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
