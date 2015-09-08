@@ -3,12 +3,18 @@
 
 ---
 
-**Use this file by command 
+#### Use this file by command
 ``` 
-git clone git@github.com:chenlonw/morgon.vim.git ~/.vim 
+git clone https://github.com/Chenlonw/morgon.vim.git ~/.vim 
 cd ~/.vim
 ln -s vimrc ~/.vimrc
-```**
+```
+I installed the Vundle as the plugin control tool, Open a VIM and type :PluginInstall
+Then you need install YouCompleteMe manually by:
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+```
 
 #### *Overall shortcuts*
 + jump to `<++>` by `ctrl+j`
