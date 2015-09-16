@@ -18,7 +18,18 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'c.vim'
 
 Plugin 'DrawIt'
-" Plugin 'ervandew/supertab'
+
+Plugin 'terryma/vim-multiple-cursors'
+
+Plugin 'jceb/vim-orgmode'
+
+"Plugin 'scrooloose/syntastic'
+"syntastic check
+
+"Plugin 'flazz/vim-colorschemes'
+
+
+
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
