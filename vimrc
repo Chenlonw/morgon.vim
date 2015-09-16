@@ -16,6 +16,8 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 
 Plugin 'c.vim'
+
+Plugin 'DrawIt'
 " Plugin 'ervandew/supertab'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
