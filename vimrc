@@ -13,13 +13,10 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'tpope/vim-fugitive'
-
 Plugin 'easymotion/vim-easymotion'
 
-Plugin 'ervandew/supertab'
-
 Plugin 'c.vim'
+" Plugin 'ervandew/supertab'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
