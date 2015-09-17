@@ -209,8 +209,9 @@ augroup END
 
 """customize command in Filetype C or Cpp
 augroup C
-autocmd Filetype c : imap <C-c> //----- -----//<Esc>bhs
-autocmd Filetype cpp : imap <C-c> //----- -----//<Esc>bhs
+"need with c.vim
+"autocmd Filetype c : imap <C-c> /*  */<Esc>bh
+"autocmd Filetype cpp : imap <C-c> /*  */<Esc>bh
 autocmd Filetype c : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype cpp : nmap <F5> : call CompileRunGcc()<CR>
 func! CompileRunGcc()

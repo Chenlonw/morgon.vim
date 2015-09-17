@@ -23,6 +23,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'jceb/vim-orgmode'
 
+Plugin 'rdnetto/YCM-Generator'
 "Plugin 'scrooloose/syntastic'
 "syntastic check
 
