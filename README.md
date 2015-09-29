@@ -30,6 +30,7 @@ cd ~/.vim/bundle/YouCompleteMe
 #### My customized shortcuts
 #### *Overall shortcuts*
 + jump to `<++>` by `ctrl+j`
++ switch line number type by `ctrl+a`
 
 #### *Comment and uncomment (Only C, C++, Fortran, Python, Shell, LaTeX supported)*
 + `ctrl+r` in view mode, can comment your code

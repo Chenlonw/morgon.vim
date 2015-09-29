@@ -24,19 +24,17 @@ import ycm_core
 # compilation database set (by default, one is not set).
 # CHANGE THIS LIST OF FLAGS. YES, THIS IS THE DROID YOU HAVE BEEN LOOKING FOR.
 flags = [
+'-fopenmp',
 '-Wall',
 '-Wextra',
 '-Wno-long-long',
-'-Wno-variadic-macros',
-'-fexceptions',
-'-stdlib=libc++',
 # THIS IS IMPORTANT! Without a "-std=<something>" flag, clang won't know which
 # language to use when compiling headers. So it will guess. Badly. So C++
 # headers will be compiled as C headers. You don't want that so ALWAYS specify
 # a "-std=<something>".
 # For a C project, you would set this to something like 'c99' instead of
 # 'c++11'.
-'-std=c99',
+#'-std=c99',
 # ...and the same thing goes for the magic -x option which specifies the
 # language that the files to be compiled are written in. This is mostly
 # relevant for c++ headers.
@@ -46,6 +44,7 @@ flags = [
 '-I',
 '.',
 '-I/home/chlwang/software/RSFSRC-1.7/include',
+'-I/home/chlwang/software/mpi/include',
 '-isystem',
 '/usr/include',
 '-isystem',

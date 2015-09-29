@@ -155,6 +155,20 @@ func SetTitle2()
 	call append(line(".")+10, "End()")
     autocmd BufNewFile * normal G
 endfunc
+
+"set relative line number by vim-numbertoggle
+function! NumberToggle()
+	if(&number == 1 && &relativenumber == 1)
+		set nonu 
+	elseif(&relativenumber == 0 && &number == 0)
+		set nu
+	elseif(&number == 0 && &relativenumber == 1)
+		set norelativenumber
+	else
+		set rnu
+	endif
+endfunc
+nnoremap <C-a> :call NumberToggle()<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """customize command in Filetype Python
