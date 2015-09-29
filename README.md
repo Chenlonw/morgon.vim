@@ -1,4 +1,4 @@
-### This documents contains my customized shortcuts and some useful plugins with VIM
+## This documents contains my customized shortcuts and some useful plugins with VIM
 ###### Author:Chenlong Wang, &nbsp;&nbsp; Email: clwang88@gmail.com
 
 ---
@@ -27,7 +27,7 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ---
 
-#### My customized shortcuts
+### My customized shortcuts
 #### *Overall shortcuts*
 + jump to `<++>` by `ctrl+j`
 + switch line number type by `ctrl+a`
@@ -61,13 +61,16 @@ cd ~/.vim/bundle/YouCompleteMe
 
 ---
 
-#### Common shortcuts by plugins
+### Common shortcuts by plugins
 
 #### *Latex-suite*
 + [cheetsheet](http://michaelgoerz.net/refcards/vimlatexqrc.pdf)
 
 #### *Vim-easymotion*
-+ jump to by `\\w`
++ jump to forward by `\\w`
++ jump to forward in line by `\\j`
++ jump to backward by `\\b`
++ jump to backward in line by `\\k`
 + find and jump by `\\f`
 
 #### *C.vim*
@@ -83,3 +86,5 @@ cd ~/.vim/bundle/YouCompleteMe
 + choose words by `ctrl+n`
 + jump forward or backward words by `ctrl+x or p`
 
+#### *Vim-Teris*
++ start by `\te`
