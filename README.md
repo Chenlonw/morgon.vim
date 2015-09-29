@@ -9,8 +9,12 @@ git clone https://github.com/Chenlonw/morgon.vim.git ~/.vim
 cd ~/.vim
 ln -s vimrc ~/.vimrc
 ```
-I installed the Vundle as the plugin control tool, Open a VIM and type :PluginInstall
-Then you need install YouCompleteMe manually by:
+I installed the Vundle as the plugin control tool, you need to install it firstly by
+```
+$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+```
+and then open a VIM and type :PluginInstall in command mode  
+After installing the Vundle you need to install YouCompleteMe manually by:
 ```
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
