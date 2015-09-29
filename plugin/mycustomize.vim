@@ -169,6 +169,17 @@ function! NumberToggle()
 	endif
 endfunc
 nnoremap <C-a> :call NumberToggle()<cr>
+
+"set highlightsearch
+function! HighLightSearch()
+	if(&hlsearch == 1)
+		set nohls
+	else
+		set hls
+	endif
+endfunc
+nnoremap <C-h> :call HighLightSearch()<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """customize command in Filetype Python
