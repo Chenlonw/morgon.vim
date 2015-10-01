@@ -1,6 +1,5 @@
 ## This documents contains my customized shortcuts and some useful plugins with VIM
 
----
 
 #### Use this file by command
 ```
