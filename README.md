@@ -1,5 +1,4 @@
 ## This documents contains my customized shortcuts and some useful plugins with VIM
-###### Author:Chenlong Wang, &nbsp;&nbsp; Email: clwang88@gmail.com
 
 ---
 
@@ -93,3 +92,7 @@ cd ~/.vim/bundle/YouCompleteMe
 
 #### *Vim-Teris*
 + start by `\te`
+
+&nbsp;
+##### Contact Info
++ **Chenlong Wang**, &nbsp;&nbsp; Email: clwang88@gmail.com
