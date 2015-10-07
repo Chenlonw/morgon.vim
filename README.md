@@ -69,6 +69,9 @@ cd ~/.vim/bundle/YouCompleteMe
 #### *Latex-suite*
 + [cheetsheet](http://michaelgoerz.net/refcards/vimlatexqrc.pdf)
 
+#### *YouCompleteMe*
++ semantic completion can be triggered by `ctrl+y`
+
 #### *Vim-easymotion*
 + jump to forward by `\\w`
 + jump to forward in line by `\\j`

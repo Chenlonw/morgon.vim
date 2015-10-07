@@ -26,6 +26,7 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'rdnetto/YCM-Generator'
 
 Plugin 'bling/vim-airline'
+
 "Plugin 'scrooloose/syntastic'
 "syntastic check
 
@@ -88,3 +89,35 @@ let g:tex_flavor='latex'
 
 "You Complete me
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+let g:ycm_key_invoke_completion = '<C-y>'
+
+" YCM settings {{{
+"let g:clang_library_path = "/usr/lib64/"
+"let g:clang_complete_copen = 0
+"let g:clang_hl_errors = 1
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = "ultisnips"
+let g:clang_close_preview = 1
+"let g:clang_complete_macros = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_use_ultisnips_completer = 1
+"let g:ycm_key_list_select_completion=[]
+"let g:ycm_key_list_previous_completion=[]
+" }}}
+
+"Syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+
+"airline syntasic
+"let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#syntastic#enabled = 1
