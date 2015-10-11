@@ -25,7 +25,10 @@ cd ~/.vim/bundle/YouCompleteMe
 + DrawIt
 + Vim-multiple-cursors
 + Latex-suite
++ airline
 + Python.vim (indent for python)
++ Unite (open file in vim)
++ Tabular (align text)
 
 ---
 
