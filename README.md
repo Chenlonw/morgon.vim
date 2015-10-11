@@ -95,6 +95,12 @@ cd ~/.vim/bundle/YouCompleteMe
 #### *Vim-Teris*
 + start by `\te`
 
+#### *Vim Unite*
++ start by `Alt+n`
+
+#### *Vim Tabular*
++ start by `:Tab /*`
+
 &nbsp;
 ##### Contact Info
 + **Chenlong Wang**, &nbsp;&nbsp; Email: clwang88@gmail.com
