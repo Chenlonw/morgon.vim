@@ -38,7 +38,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + switch line number type by `ctrl+a`
 + switch highlight searching by `ctrl+h`
 
-#### *Comment and uncomment (Only C, C++, Fortran, Python, Shell, LaTeX, Matlab supported)*
+#### *Comment and uncomment (Only C, C++, Fortran, Python, Shell, LaTeX, Matlab, Vim supported)*
 + `ctrl+r` in view mode, can comment your code
 + `ctrl+f` in view mode, can uncomment your code
 

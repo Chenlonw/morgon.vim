@@ -9,8 +9,6 @@ autocmd BufEnter SConstruct setfiletype python
 autocmd BufNewfile SConstruct setfiletype python                                                                                               
 autocmd BufRead *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
 autocmd BufNewFile *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
-autocmd BufRead *.m set filetype=matalb
-autocmd BufNewFile *.m set filetype=matlab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Basic configuration
@@ -49,6 +47,9 @@ func! InsertComment()
 	if &filetype=='matlab'
 		exec "s/^/%/"
 	endif 
+	if &filetype=='vim'
+		exec "s/^/\"/"
+	endif 
 	if &filetype=='fortran'
 		exec "s/^/!/"
 	endif 
@@ -73,6 +74,9 @@ func! CancleComment()
 	endif 
 	if &filetype=='matlab'
 		exec "s/%//"
+	endif 
+	if &filetype=='vim'
+		exec "s/\"//"
 	endif 
 	if &filetype=='fortran'
 		exec "s/!//"
