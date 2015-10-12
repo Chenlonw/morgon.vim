@@ -317,10 +317,10 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 """"""""""""""""""""
 " Unite.vim
 """"""""""""""""""""
-nmap <A-n> :call Openunitefile()<CR>
-func! Openunitefile()
-    exec "Unite file buffer"
-endfunc
+"nmap <A-n> :call Openunitefile()<CR>
+"func! Openunitefile()
+"    exec "Unite file buffer"
+"endfunc
 
 """"""""""""""""""""
 "airline syntasic
