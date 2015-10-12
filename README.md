@@ -98,11 +98,11 @@ cd ~/.vim/bundle/YouCompleteMe
 #### *Vim-Teris*
 + start by `\te`
 
-#### *Vim Unite*
-+ start by `Alt+n`
-
 #### *Vim Tabular*
 + start by `:Tab /*`
+
+#### *Vim NERDtree*
++ start by `Ctrl+e`
 
 &nbsp;
 ##### Contact Info

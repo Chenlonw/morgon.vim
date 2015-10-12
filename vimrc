@@ -27,9 +27,12 @@ Plugin 'rdnetto/YCM-Generator'
 
 Plugin 'bling/vim-airline'
 
-Plugin 'Shougo/unite.vim'
+"Plugin 'Shougo/unite.vim'
 
 Plugin 'godlygeek/tabular'
+
+Plugin 'scrooloose/nerdtree'
+
 "Plugin 'scrooloose/syntastic'
 "syntastic check
 

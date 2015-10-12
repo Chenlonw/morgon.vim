@@ -332,3 +332,5 @@ let g:airline#extensions#tabline#enabled = 1
 "fix the airline only showup with split file
 :set laststatus=2 
 
+"customize the shortcut for Nerdtree
+nnoremap <C-e> :NERDTreeToggle<CR>
