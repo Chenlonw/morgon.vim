@@ -233,14 +233,21 @@ augroup Latex
 autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'evince'
 autocmd Filetype tex : nmap <F2> : LLPStartPreview<CR>
-autocmd Filetype tex : map <C-l> : call CompileLatex()<CR>
-autocmd Filetype tex : imap <C-n> \new{}<Esc>li
-autocmd Filetype tex : imap <C-o> \old{<Esc>
+autocmd Filetype tex : nmap <C-l> : call CompileLatex()<CR>
+autocmd Filetype tex : nmap <S-e> : call EvinceLatex()<CR>
+"autocmd Filetype tex : imap <C-n> \new{}<Esc>li
+"autocmd Filetype tex : imap <C-o> \old{<Esc>
 
 func! CompileLatex()
     exec "w"
     exec "!pdflatex %"
 endfunc                               
+
+func! EvinceLatex()
+    exec "w"
+    exec "!evince %<.pdf&"
+endfunc                               
+
 augroup END 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

@@ -29,6 +29,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + Python.vim (indent for python)
 + Unite (open file in vim)
 + Tabular (align text)
++ fugitive (Git wrapper)
 
 ---
 
@@ -62,8 +63,7 @@ cd ~/.vim/bundle/YouCompleteMe
 
 #### *Latex related*
 + compile a latex file by `ctrl+l`
-+ new comment by `ctrl+n`
-+ strike through  by `ctrl+o`
++ display a corresponding pdf file with evince by `Shift+e`
 
 ---
 
