@@ -92,7 +92,7 @@ filetype indent on
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
-let g:Tex_CompileRule_pdf = 'pdflatex --interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-style $*'
 
 "========================================
 

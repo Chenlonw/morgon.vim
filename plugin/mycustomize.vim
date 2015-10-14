@@ -240,7 +240,7 @@ autocmd Filetype tex : nmap <S-e> : call EvinceLatex()<CR>
 
 func! CompileLatex()
     exec "w"
-    exec "!pdflatex %"
+    exec "!pdflatex % -interaction=nonstopmode -file-line-error-style"
 endfunc                               
 
 func! EvinceLatex()
