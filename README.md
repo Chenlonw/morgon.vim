@@ -55,6 +55,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + insert a `Result ( )` by `Shift+r`
 + insert `${SOURCES[]}` by `Ctrl+s`
 + insert `${TARGETS[]}` by `Ctrl+t`
++ insert `['']` by `Ctrl+b`
 + excute a scons by `ctrl+s`
 + set filetype as Python by `ctrl+p`
 

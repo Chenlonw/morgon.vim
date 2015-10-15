@@ -89,8 +89,8 @@ func! Setfilepython()
     exec "setf python"
 endfunc
 
-autocmd BufNewFile *.cc,*.cpp,*.c,*.sh exec ":call SetTitle()"
-func SetTitle()
+autocmd BufNewFile *.cc,*.cpp,*.c,*.sh exec ":call SetTitleChlw()"
+func SetTitleChlw()
     if &filetype == 'sh'
         call setline(1,"\#########################################################################")
         call append(line("."), "\# File Name: ".expand("%"))
@@ -151,8 +151,8 @@ func SetTitle()
     autocmd BufNewFile * normal G
 endfunc
 
-autocmd BufNewFile SConstruct exec ":call SetTitle2()"
-func SetTitle2()
+autocmd BufNewFile SConstruct exec ":call SetTitle2Chlw()"
+func SetTitle2Chlw()
 	call setline(1,"\#########################################################################")
 	call append(line("."), "\# Description:<++>")
 	call append(line(".")+1, "\# Author: Chenlong Wang")
@@ -198,13 +198,14 @@ nnoremap <C-h> :call HighLightSearch()<cr>
 augroup python 
 autocmd Filetype python : imap <C-s> ${SOURCES[<++>]}
 autocmd Filetype python : imap <C-t> ${TARGETS[<++>]}
+autocmd Filetype python : imap <C-b> ['']<Esc>hi
 autocmd Filetype python : nmap <S-r> : call InsertResult()<CR>
 autocmd Filetype python : nmap <S-p> : call InsertPlot()<CR>
 autocmd Filetype python : nmap <S-f> : call InsertFlow()<CR>
-autocmd Filetype python : nmap <C-s> :call CompileSCons()<CR>
+autocmd Filetype python : nmap <C-s> : call CompileSCons()<CR>
 
 func! InsertFlow() 
-	exec "normal o\<CR>Flow('',\<CR>\<BS>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Right>\<Right>"
+	exec "normal o\<CR>Flow('<++>',\<CR>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Up>"
 endfunc
 
 func! InsertResult() 
