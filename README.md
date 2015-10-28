@@ -25,19 +25,20 @@ cd ~/.vim/bundle/YouCompleteMe
 + DrawIt
 + Vim-multiple-cursors
 + Latex-suite
-+ airline
++ Airline
 + Python.vim (indent for python)
-+ Unite (open file in vim)
 + Tabular (align text)
-+ fugitive (Git wrapper)
++ Fugitive (Git wrapper)
++ Nerdtree (working folder)
++ LanguageTool (gramma checker)
 
 ---
 
 ### My customized shortcuts
 #### *Overall shortcuts*
 + jump to `<++>` by `ctrl+j`
-+ switch line number type by `ctrl+a`
-+ switch highlight searching by `ctrl+h`
++ switch line number type in normal mode by `ctrl+a`
++ switch highlight searching in normal mode by `ctrl+h`
 
 #### *Comment and uncomment (Only C, C++, Fortran, Python, Shell, LaTeX, Matlab, Vim supported)*
 + `ctrl+r` in view mode, can comment your code
@@ -50,12 +51,12 @@ cd ~/.vim/bundle/YouCompleteMe
 + excute a makefile by `F4`
 
 #### *SConstruct*
-+ insert a `Flow ( )` by `Shift+f`
-+ insert a `Plot ( )` by `Shift+p`
-+ insert a `Result ( )` by `Shift+r`
-+ insert `${SOURCES[]}` by `Ctrl+s`
-+ insert `${TARGETS[]}` by `Ctrl+t`
-+ insert `['']` by `Ctrl+b`
++ insert a `Flow ( )` in normal mode by `Shift+f`
++ insert a `Plot ( )` in normal mode by `Shift+p`
++ insert a `Result ( )` in normal mode by `Shift+r`
++ insert `${SOURCES[]}` in insert mode by `Ctrl+s`
++ insert `${TARGETS[]}` in insert mode by `Ctrl+t`
++ insert `['']` in insert mode by `Ctrl+b`
 + excute a scons by `ctrl+s`
 + set filetype as Python by `ctrl+p`
 
@@ -104,6 +105,12 @@ cd ~/.vim/bundle/YouCompleteMe
 
 #### *Vim NERDtree*
 + start by `Ctrl+e`
+
+#### *Vim LanguageTool*
+You need download the LanguageTool from [LanguageTool](https://www.languagetool.org/)
++ customized your installation directory by setting `:let g:languagetool_jar='$HOME/Your/Installation/Directory/languagetool-commandline.jar'`
++ toggle in normal mode by `ctrl+r`
++ stop in normal mode by `ctrl+f`
 
 &nbsp;
 ##### Contact Info

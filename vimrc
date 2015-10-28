@@ -29,16 +29,25 @@ Plugin 'bling/vim-airline'
 
 "Plugin 'Shougo/unite.vim'
 
+"align your text
 Plugin 'godlygeek/tabular'
 
+"working folder
 Plugin 'scrooloose/nerdtree'
 
+"Git wrapper
 Plugin 'tpope/vim-fugitive'
+
+"Plugin for evernote and vim
+Plugin 'kakkyz81/evervim'
+
+"Plugin for gramma check
+Plugin 'LanguageTool'
+
 "Plugin 'scrooloose/syntastic'
 "syntastic check
 
 "Plugin 'flazz/vim-colorschemes'
-
 
 
 " The following are examples of different formats supported.

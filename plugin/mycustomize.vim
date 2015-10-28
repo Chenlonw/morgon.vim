@@ -236,6 +236,7 @@ let g:livepreview_previewer = 'evince'
 autocmd Filetype tex : nmap <F2> : LLPStartPreview<CR>
 autocmd Filetype tex : nmap <C-l> : call CompileLatex()<CR>
 autocmd Filetype tex : nmap <S-e> : call EvinceLatex()<CR>
+autocmd Filetype tex : nmap <C-s> : call CompileSCons()<CR>
 "autocmd Filetype tex : imap <C-n> \new{}<Esc>li
 "autocmd Filetype tex : imap <C-o> \old{<Esc>
 
@@ -354,3 +355,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 "customize the shortcut for Nerdtree
 nnoremap <C-e> :NERDTreeToggle<CR>
+
+"give the directory of language tool
+:let g:languagetool_jar='$HOME/software/LanguageTool/LanguageTool-3.1/languagetool-commandline.jar'
+nnoremap <C-r> : LanguageToolCheck <CR>
+nnoremap <C-f> : LanguageToolClear <CR>
