@@ -358,5 +358,5 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 
 "give the directory of language tool
 :let g:languagetool_jar='$HOME/software/LanguageTool/LanguageTool-3.1/languagetool-commandline.jar'
-nnoremap <C-r> : LanguageToolCheck <CR>
-nnoremap <C-f> : LanguageToolClear <CR>
+nnoremap <S-r> : LanguageToolCheck <CR>
+nnoremap <S-f> : LanguageToolClear <CR>

@@ -109,8 +109,8 @@ cd ~/.vim/bundle/YouCompleteMe
 #### *Vim LanguageTool*
 You need download the LanguageTool from [LanguageTool](https://www.languagetool.org/)
 + customized your installation directory by setting `:let g:languagetool_jar='$HOME/Your/Installation/Directory/languagetool-commandline.jar'`
-+ toggle in normal mode by `ctrl+r`
-+ stop in normal mode by `ctrl+f`
++ toggle in normal mode by `Shift+r`
++ stop in normal mode by `Shift+f`
 
 &nbsp;
 ##### Contact Info
