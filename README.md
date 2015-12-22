@@ -31,6 +31,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + Fugitive (Git wrapper)
 + Nerdtree (working folder)
 + LanguageTool (gramma checker)
++ [better Python auto indent](http://www.vim.org/scripts/script.php?script_id=974)
 
 ---
 
@@ -110,7 +111,7 @@ cd ~/.vim/bundle/YouCompleteMe
 You need download the LanguageTool from [LanguageTool](https://www.languagetool.org/)
 + customized your installation directory by setting `:let g:languagetool_jar='$HOME/Your/Installation/Directory/languagetool-commandline.jar'`
 + toggle in normal mode by `Shift+r`
-+ stop in normal mode by `Shift+f`
++ stop in normal mode by `Shift+d`
 
 &nbsp;
 ##### Contact Info
