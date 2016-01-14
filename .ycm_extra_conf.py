@@ -45,6 +45,7 @@ flags = [
 '.',
 '-I/home/chlwang/software/RSFSRC-1.7/include',
 '-I/home/chlwang/software/mpi/include',
+'-I/home/chlwang/software/RSFSRC-1.7/user/espenbir/liblbfgs-1.10/include',
 '-isystem',
 '/usr/include',
 '-isystem',

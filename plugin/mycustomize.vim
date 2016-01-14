@@ -53,6 +53,9 @@ func! InsertComment()
 	if &filetype=='fortran'
 		exec "s/^/!/"
 	endif 
+	if &filetype=='gnuplot'
+		exec "s/^/#/"
+	endif 
 endfunc
 
 vmap <C-f> :call CancleComment()<CR>
@@ -80,6 +83,9 @@ func! CancleComment()
 	endif 
 	if &filetype=='fortran'
 		exec "s/!//"
+	endif 
+	if &filetype=='gnuplot'
+		exec "s/#//"
 	endif 
 endfunc
 
@@ -318,7 +324,7 @@ command! -range=% MyToHtml :call MyToHtml(<line1>,<line2>)
 """"""""""""""""""""
 
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-let g:ycm_key_invoke_completion = '<C-y>'
+let g:ycm_key_invoke_completion = "<C-y>"
 
 " YCM settings {{{
 "let g:clang_library_path = "/usr/lib64/"
