@@ -288,6 +288,12 @@ func! CompileMake()
     exec "! make"
 endfunc
 
+autocmd Filetype sh : nmap <F3> : call CompileShell()<CR>
+func! CompileShell()
+    exec "w"
+    exec "! sh %<.sh&"
+endfunc
+
 func! MyToHtml(line1, line2)
   " make sure to generate in the correct format
   let old_css = 1
