@@ -1,0 +1,8 @@
+bundle/*
+bundle/YouCompleteMe
+.ycm_extra_conf.pyc
+colors/
+spell/
+doc/
+*.pyc
+*.swp

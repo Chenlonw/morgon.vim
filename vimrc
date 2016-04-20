@@ -47,6 +47,8 @@ Plugin 'LanguageTool'
 "Plugin 'scrooloose/syntastic'
 "syntastic check
 
+"Plugin 'Yggdroot/indentLine'
+Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'flazz/vim-colorschemes'
 
 
@@ -115,5 +117,4 @@ let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-
 

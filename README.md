@@ -114,5 +114,8 @@ You need download the LanguageTool from [LanguageTool](https://www.languagetool.
 + stop in normal mode by `Shift+d`
 
 &nbsp;
++ Sometimes, the gvim cannot open due to the plugins. It may caused by the previous version of shell
+vim. You can try `gvim --nofork`, it works for me 
+&nbsp;
 ##### Contact Info
 + **Chenlong Wang**, &nbsp;&nbsp; Email: clwang88@gmail.com

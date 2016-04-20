@@ -243,8 +243,8 @@ autocmd Filetype tex : nmap <F2> : LLPStartPreview<CR>
 autocmd Filetype tex : nmap <C-l> : call CompileLatex()<CR>
 autocmd Filetype tex : nmap <S-e> : call EvinceLatex()<CR>
 autocmd Filetype tex : nmap <C-s> : call CompileSCons()<CR>
-"autocmd Filetype tex : imap <C-n> \new{}<Esc>li
-"autocmd Filetype tex : imap <C-o> \old{<Esc>
+autocmd Filetype tex : imap <C-n> \new{}<Esc>li
+autocmd Filetype tex : imap <C-o> \old{<Esc>
 
 func! CompileLatex()
     exec "w"
@@ -291,7 +291,7 @@ endfunc
 autocmd Filetype sh : nmap <F3> : call CompileShell()<CR>
 func! CompileShell()
     exec "w"
-    exec "! sh %<.sh&"
+    exec "! sh %<.sh"
 endfunc
 
 func! MyToHtml(line1, line2)
@@ -372,3 +372,11 @@ nnoremap <C-e> :NERDTreeToggle<CR>
 :let g:languagetool_jar='$HOME/software/LanguageTool/LanguageTool-3.1/languagetool-commandline.jar'
 nnoremap <S-r> : LanguageToolCheck <CR>
 nnoremap <S-d> : LanguageToolClear <CR>
+
+
+""""""""""""""""""""
+"Indent guide
+""""""""""""""""""""
+"GVim
+"let g:indentLine_color_gui = '#A4E57E'
+":set list lcs=tab:\|\ 
