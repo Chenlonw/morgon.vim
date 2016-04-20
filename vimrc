@@ -48,8 +48,10 @@ Plugin 'LanguageTool'
 "syntastic check
 
 "Plugin 'Yggdroot/indentLine'
-Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'flazz/vim-colorschemes'
+
+Plugin 'rking/ag.vim'
 
 
 " The following are examples of different formats supported.
@@ -117,4 +119,3 @@ let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
-

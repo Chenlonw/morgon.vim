@@ -31,6 +31,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + Fugitive (Git wrapper)
 + Nerdtree (working folder)
 + LanguageTool (gramma checker)
++ Ag.vim Sliver Searcher
 + [better Python auto indent](http://www.vim.org/scripts/script.php?script_id=974)
 
 ---
