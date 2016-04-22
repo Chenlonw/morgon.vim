@@ -51,6 +51,8 @@ Plugin 'LanguageTool'
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'flazz/vim-colorschemes'
 
+Plugin 'altercation/vim-colors-solarized'
+
 Plugin 'rking/ag.vim'
 
 
@@ -119,3 +121,13 @@ let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-
 "let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 "let g:syntastic_check_on_wq = 0
+
+" solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans =1
+let g:solarized_degrade=1
+let g:solarized_bold=1  
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal" 
