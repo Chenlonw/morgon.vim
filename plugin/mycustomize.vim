@@ -20,7 +20,9 @@ set cindent
 set autoindent
 set hls
 syntax enable
+set background=dark
 colo desert
+"colo solarized
 set textwidth=100
 set gfn=Monospace\ 13
 autocmd InsertEnter * se cul    "under_line of current line
@@ -96,7 +98,7 @@ func! Setfilepython()
 endfunc
 
 autocmd BufNewFile *.cc,*.cpp,*.c,*.sh exec ":call SetTitleChlw()"
-func SetTitleChlw()
+func! SetTitleChlw()
     if &filetype == 'sh'
         call setline(1,"\#########################################################################")
         call append(line("."), "\# File Name: ".expand("%"))
@@ -153,12 +155,11 @@ func SetTitleChlw()
 "		call append(line(".")+5, "	exit(0);")
 "        call append(line(".")+6, "}")
     endif
-
     autocmd BufNewFile * normal G
 endfunc
 
 autocmd BufNewFile SConstruct exec ":call SetTitle2Chlw()"
-func SetTitle2Chlw()
+func! SetTitle2Chlw()
 	call setline(1,"\#########################################################################")
 	call append(line("."), "\# Description:<++>")
 	call append(line(".")+1, "\# Author: Chenlong Wang")
