@@ -5,8 +5,10 @@
 """""""""""""""""""""""""""""""
 
 """ Set File types
-autocmd BufEnter SConstruct setfiletype python 
-autocmd BufNewfile SConstruct setfiletype python                                                                                               
+autocmd BufEnter SConstruct* setfiletype python 
+autocmd BufNewfile SConstruct* setfiletype python                                                                                               
+autocmd BufEnter *.plg setfiletype gnuplot 
+autocmd BufNewfile *.plg setfiletype gnuplot
 autocmd BufRead *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
 autocmd BufNewFile *.md,*.mkd,*.markdown,*.mdwn set filetype=mkd
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,6 +24,7 @@ set hls
 syntax enable
 set background=dark
 colo desert
+"colo darkblue
 "colo solarized
 set textwidth=100
 set gfn=Monospace\ 13
@@ -225,7 +228,7 @@ endfunc
 
 func! CompileSCons()
     exec "w"
-    exec "! scons"
+    exec "! scons -Q"
 endfunc
 augroup END 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -242,6 +245,7 @@ autocmd Filetype tex setl updatetime=1
 let g:livepreview_previewer = 'evince'
 autocmd Filetype tex : nmap <F2> : LLPStartPreview<CR>
 autocmd Filetype tex : nmap <C-l> : call CompileLatex()<CR>
+autocmd Filetype tex : nmap <C-x> : call CompileXeLatex()<CR>
 autocmd Filetype tex : nmap <S-e> : call EvinceLatex()<CR>
 autocmd Filetype tex : nmap <C-s> : call CompileSCons()<CR>
 autocmd Filetype tex : imap <C-n> \new{}<Esc>li
@@ -250,6 +254,11 @@ autocmd Filetype tex : imap <C-o> \old{<Esc>
 func! CompileLatex()
     exec "w"
     exec "!pdflatex % -interaction=nonstopmode -file-line-error-style"
+endfunc                               
+
+func! CompileXeLatex()
+    exec "w"
+    exec "!xelatex % -interaction=nonstopmode -file-line-error-style"
 endfunc                               
 
 func! EvinceLatex()
