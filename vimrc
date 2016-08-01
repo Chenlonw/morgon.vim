@@ -51,9 +51,13 @@ Plugin 'LanguageTool'
 "Plugin 'nathanaelkane/vim-indent-guides'
 "Plugin 'flazz/vim-colorschemes'
 
+" color configuration
 Plugin 'altercation/vim-colors-solarized'
 
+" ag searching
 Plugin 'rking/ag.vim'
+
+Plugin 'sirver/ultisnips'
 
 
 " The following are examples of different formats supported.

@@ -26,13 +26,12 @@ cd ~/.vim/bundle/YouCompleteMe
 + Vim-multiple-cursors
 + Latex-suite
 + Airline
-+ Python.vim (indent for python)
++ Python.vim ([indent for python](http://www.vim.org/scripts/script.php?script_id=974))
 + Tabular (align text)
 + Fugitive (Git wrapper)
 + Nerdtree (working folder)
 + LanguageTool (gramma checker)
 + Ag.vim Sliver Searcher
-+ [better Python auto indent](http://www.vim.org/scripts/script.php?script_id=974)
 
 ---
 

@@ -113,50 +113,6 @@ func! SetTitleChlw()
         call append(line(".")+6, "\#!/bin/bash")
         call append(line(".")+7, "")
         call append(line(".")+8, "<++>")
-    else
-        call setline(1, " ")
-"        call setline(1, "/*************************************************************************")
-"        call append(line("."), "    Copyright @2015 Tongji University")
-"        call append(line(".")+1, "    > File Name: ".expand("%"))
-"        call append(line(".")+2, "    > Description: <++>")
-"        call append(line(".")+3, "    > Author: Chenlong Wang")
-"        call append(line(".")+4, "    > Mail: clwang88@gmail.com")
-"        call append(line(".")+5, "    > Created Time: ".strftime("%c"))
-"        call append(line(".")+6, " ************************************************************************/")
-"        call append(line(".")+7, "")
-    endif
-    if &filetype == 'cpp' 
-"        call append(line(".")+8, "#include<<++>>")
-"        call append(line(".")+9, "")
-"        call append(line(".")+10, "using namespace std;")
-"        call append(line(".")+11, "int main (int argc, char *argv[])")
-"        call append(line(".")+12, "{")
-"        call append(line(".")+13, "	<++>")
-" 		 call append(line(".")+14, "	exit(0);")
-"        call append(line(".")+15, "}")
-"        call append(line("."), "#include<<++>>")
-"        call append(line(".")+1, "")
-"        call append(line(".")+2, "using namespace std;")
-"        call append(line(".")+3, "int main (int argc, char *argv[])")
-"        call append(line(".")+4, "{")
-"        call append(line(".")+5, "	<++>")
-"		call append(line(".")+6, "	exit(0);")
-"        call append(line(".")+7, "}")
-    endif
-    if &filetype == 'c'
-"        call append(line(".")+9, "")
-"        call append(line(".")+10, "int main (int argc, char *argv[])")
-"        call append(line(".")+11, "{")
-"        call append(line(".")+12, "	<++>")
-"		call append(line(".")+13, "	exit(0);")
-"        call append(line(".")+14, "}")
-"        call append(line("."), "#include<<++>>")
-"        call append(line(".")+1, "")
-"        call append(line(".")+2, "int main (int argc, char *argv[])")
-"        call append(line(".")+3, "{")
-"        call append(line(".")+4, "	<++>")
-"		call append(line(".")+5, "	exit(0);")
-"        call append(line(".")+6, "}")
     endif
     autocmd BufNewFile * normal G
 endfunc
@@ -272,8 +228,6 @@ augroup END
 """customize command in Filetype C or Cpp
 augroup C
 "need with c.vim
-"autocmd Filetype c : imap <C-c> /*  */<Esc>bh
-"autocmd Filetype cpp : imap <C-c> /*  */<Esc>bh
 autocmd Filetype c : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype cpp : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype c : nmap <C-s> :call CompileSCons()<CR>
@@ -325,7 +279,6 @@ func! MyToHtml(line1, line2)
 endfunc
 command! -range=% MyToHtml :call MyToHtml(<line1>,<line2>)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 
 
