@@ -1,8 +1,6 @@
 #include <rsf.h>
-#include <chlw.h>
 
-	int
-main ( int argc, char *argv[] )
+int main ( int argc, char *argv[] )
 {
     sf_file <+Fin+>=NULL;                       /* SF Input File Pointer */
     sf_file <+Fout+>=NULL;                      /* SF Output File Pointer */
