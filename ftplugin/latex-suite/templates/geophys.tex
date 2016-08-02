@@ -1,0 +1,45 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+
+\documentclass[12pt]{geophysics}
+
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{hyperref}
+\usepackage{anyfontsize} % use any font size
+\usepackage{enumitem} %no indent in enumerate with [leftmargin=*]
+\usepackage{tikz}
+\usepackage{ulem}
+\usepackage{textcomp}
+\renewcommand{\baselinestretch}{1}  %control line skip
+\usepackage[retainorgcmds]{IEEEtrantools}
+
+\begin{document}
+\title{Title}
+\author{ Chenlong Wang\footnotemark[1] }
+
+\address{
+\footnotemark[1] School of Ocean and Earth Science,\\
+Tongji University,\\
+Siping Road 1239, Shanghai, 200092, China\\
+}
+
+\righthead{WEMVA}
+
+\maketitle
+\onecolumn
+
+\begin{abstract}
+<++>
+\end{abstract}
+
+\section{<++>}
+
+\end{document}
