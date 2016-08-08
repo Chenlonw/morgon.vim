@@ -299,8 +299,8 @@ let g:ycm_key_invoke_completion = "<C-y>"
 "let g:clang_library_path = "/usr/lib64/"
 "let g:clang_complete_copen = 0
 "let g:clang_hl_errors = 1
-"let g:clang_snippets = 1
-"let g:clang_snippets_engine = "ultisnips"
+let g:clang_snippets = 1
+let g:clang_snippets_engine = "ultisnips"
 let g:clang_close_preview = 1
 "let g:clang_complete_macros = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -309,6 +309,20 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_key_list_select_completion=[]
 "let g:ycm_key_list_previous_completion=[]
 " }}}
+
+"let g:UltiSnipsExpandTrigger="<F2>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 """"""""""""""""""""
 " Unite.vim
@@ -343,3 +357,24 @@ nnoremap <S-d> : LanguageToolClear <CR>
 "GVim
 "let g:indentLine_color_gui = '#A4E57E'
 ":set list lcs=tab:\|\ 
+
+"Syntastic
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+" solarized
+let g:solarized_termcolors=256
+let g:solarized_termtrans =1
+let g:solarized_degrade=1
+let g:solarized_bold=1  
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast="normal"
+let g:solarized_visibility="normal" 
+

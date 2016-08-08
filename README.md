@@ -32,6 +32,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + Nerdtree (working folder)
 + LanguageTool (gramma checker)
 + Ag.vim Sliver Searcher
++ UltiSnip (snippets)
 
 ---
 
@@ -112,6 +113,12 @@ You need download the LanguageTool from [LanguageTool](https://www.languagetool.
 + customized your installation directory by setting `:let g:languagetool_jar='$HOME/Your/Installation/Directory/languagetool-commandline.jar'`
 + toggle in normal mode by `Shift+r`
 + stop in normal mode by `Shift+d`
+
+#### *UltiSnip*
+The UltiSnip is a very efficient to type your content with VIM.
+I use supertab to solve the conflicts with YouCompleteMe.   
+It can be toggled by 'Tab' button.
+
 
 &nbsp;
 + Sometimes, the gvim cannot open due to the plugins. It may caused by the previous version of shell

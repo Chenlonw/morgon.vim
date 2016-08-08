@@ -114,24 +114,3 @@ let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-style $*'
 
 "========================================
-
-
-"Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
-" solarized
-let g:solarized_termcolors=256
-let g:solarized_termtrans =1
-let g:solarized_degrade=1
-let g:solarized_bold=1  
-let g:solarized_underline=1
-let g:solarized_italic=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal" 
