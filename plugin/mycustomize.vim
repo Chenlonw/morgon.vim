@@ -310,9 +310,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_key_list_previous_completion=[]
 " }}}
 
-"let g:UltiSnipsExpandTrigger="<F2>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+"let g:UltiSnipsExpandTrigger="<C-h>"
+"let g:UltiSnipsJumpForwardTrigger="<C-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<C-z>"
 "let g:UltiSnipsSnippetsDir='~/.vim/UltiSnips'
 
 " make YCM compatible with UltiSnips (using supertab)
