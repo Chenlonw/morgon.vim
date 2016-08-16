@@ -43,12 +43,6 @@ int main(int argc, char *argv[])
 }
 endsnippet
 
-snippet for "for loop (for)"
-for (${2:i} = 0; $2 < ${1:count}; ${3:$2++}) {
-	${VISUAL}${0}
-}
-endsnippet
-
 snippet once "Include header once only guard"
 #ifndef ${1:`!p
 if not snip.c:
@@ -67,12 +61,6 @@ endsnippet
 
 snippet fprintf "fprintf ..."
 fprintf(${1:stderr}, "${2:%f}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
-endsnippet
-
-snippet eli "else if .. (eli)"
-else if (${1:/* condition */}) {
-	${VISUAL}${0}
-}
 endsnippet
 
 snippet printf "printf .. (printf)"
@@ -103,7 +91,7 @@ fprintf(stderr,"!!!! This is a debug index !!!!\n");
 endsnippet
 
 snippet wcl "author"
-Author: Chenlong Wang, chen.l.wang@ntnu.no, NTNU, 2015
+Author: Chenlong Wang, chen.l.wang@ntnu.no, NTNU, `date +%Y`
 endsnippet
 
 ### variable ###
@@ -119,10 +107,54 @@ snippet i "int"
 int ${1}
 endsnippet
 
-snippet / "Madagascar function comment"
+snippet mc "Madagascar function comment"
 /*< ${1} >*/
 endsnippet
 
 snippet MD "Msim debug"
 MSIM_DEBUG 
+endsnippet
+
+snippet todo "TODO" b
+/* :TODO: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet bug "BUG" b
+/* :BUG: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet warn "warning" b
+/* :WARNING: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet sif "statement if"
+if (${1:/* condition */}) {
+	${VISUAL}${0}
+}
+endsnippet
+
+snippet seli "statement else if .. (seli)"
+else if (${1:/* condition */}) {
+	${VISUAL}${0}
+}
+endsnippet
+
+snippet sel "statement else .. (sel)"
+else {
+	${1}
+}
+endsnippet
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; $2++) {
+	${VISUAL}${0}
+}
+endsnippet
+
+snippet 2for "for for loop (for)" b
+for (${2:i} = 0; $2 < ${1:count}; $2++) {
+	for (${4:i} = 0; $4 < ${3:count}; $4++) {
+	${VISUAL}${0}
+	}
+}
 endsnippet
