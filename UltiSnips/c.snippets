@@ -147,14 +147,184 @@ endsnippet
 
 snippet for "for loop (for)"
 for (${2:i} = 0; $2 < ${1:count}; $2++) {
-	${VISUAL}${0}
+	${3}
 }
 endsnippet
 
 snippet 2for "for for loop (for)" b
 for (${2:i} = 0; $2 < ${1:count}; $2++) {
-	for (${4:i} = 0; $4 < ${3:count}; $4++) {
+	for (${4:j} = 0; $4 < ${3:count}; $4++) {
 	${VISUAL}${0}
 	}
 }
+endsnippet
+
+##################Madagascar#####################
+
+snippet mmain "main in madagascar" b
+#include <rsf.h>
+
+int main ( int argc, char *argv[] )
+{
+	sf_file ${1:Fin} = NULL;                       /* SF Input File Pointer */
+	sf_file <+Fout+> = NULL;                      /* SF Output File Pointer */
+	sf_axis A1, A2;                                   /* SF Axis */
+
+	bool verb;                                    /* verbose */
+
+	/* initialize rsf */
+	sf_init(argc,argv);
+
+	<+Fin+> = sf_input("in");
+	<+Fout+> = sf_output("out");
+
+	/* Read arguments from command lines */
+	if ( !sf_getbool( "verb" , &verb ) ) verb = 1;
+	
+	/* get the axis */
+	A1 = sf_iaxa( <+Fin+>, 1);
+	A2 = sf_iaxa( <+Fin+>, 2);
+	/* get parameters from input file */	
+	int nz = sf_n(A1); float dz = sf_d(A1); float oz = sf_o(A1);
+	int nx = sf_n(A2); float dx = sf_d(A2); float ox = sf_o(A2);
+	
+	float **<+array+> = sf_floatalloc<++>(<++>);
+
+	/* read file */
+	sf_floatread( <+ArrayPointer+>, <+size+>, <+Fin+> );
+
+	<+main+>
+
+
+	/* modify axis */
+	A1 = sf_maxa( <+n1+>, <+o1+>, <+d1+> );		
+	A2 = sf_maxa( <+n2+>, <+o2+>, <+d2+> );		
+	sf_oaxa( <+Fout+>, A1, 1 ); sf_putstring( <+Fout+>, "label1", "z" ); sf_putstring( <+Fout+>, "unit1", "m" );
+	sf_oaxa( <+Fout+>, A2, 2 ); sf_putstring( <+Fout+>, "label2", "z" ); sf_putstring( <+Fout+>, "unit2", "m" );
+	sf_floatwrite( <+ArrayPointer+>, <+size+>, <+Fout+> );
+
+	sf_close();
+	exit(0);
+}
+endsnippet
+
+#########utils.c#################
+snippet uwf "writefloat1d" b
+utils_writefloat1d ( "${1:name}", "${2}", ${3}, ${4:nx} );
+endsnippet
+
+snippet urf "readfloat1d" b
+utils_readfloat1d ( "${1:name}", "${2}", ${3}, ${4:nx} );
+endsnippet
+
+snippet uwf2 "writefloat2d" b
+utils_writefloat2d ( "${1:name}", "${2}", ${3}, ${4:nx}, ${5:nz} );
+endsnippet
+
+snippet urf2 "readfloat2d" b
+utils_readfloat2d ( "${1:name}", "${2}", ${3}, ${4:nx}, ${5:nz} );
+endsnippet
+
+snippet uwf3 "writefloat3d" b
+utils_writefloat3d ( "${1:name}", "${2}", ${3}, ${4:nx}, ${5:ny}, ${5:nz} );
+endsnippet
+
+snippet uzf "zerofloat" b
+utils_zerofloat ( ${1:array}, ${2:nx}, ${3:ny}, ${4:nz} );
+endsnippet
+
+snippet uf2 "freefloat2d" b
+utils_freefloat2d ( ${1:array} );
+endsnippet
+
+snippet uf3 "freefloat3d" b
+utils_freefloat3d ( ${1:array} );
+endsnippet
+
+snippet uf4 "freefloat4d" b
+utils_freefloat4d ( ${1:array} );
+endsnippet
+
+snippet ufmx "findmax" b
+utils_find3dmax ( ${1:array}, ${2:nx}, ${3:ny}, ${4:nz} );
+endsnippet
+
+snippet ufmi "findmin" b
+utils_find3dmin ( ${1:array}, ${2:nx}, ${3:ny}, ${4:nz} );
+endsnippet
+
+snippet ucpy "copy" b
+utils_copy3darray ( ${1:to}, ${2:from}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet uscl "scale" b
+utils_scale3darray ( ${1:array}, ${2:scale}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet umlt "multply" b
+utils_array_array_mult3d ( ${1:array1}, ${2:array2}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet uadd "add" b
+utils_array_array_add3d ( ${1:array1}, ${2:array2}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet usub "sub" b
+utils_array_array_sub3d ( ${1:array1}, ${2:array2}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet ucat "cat" b
+utils_array_array_cat3d ( ${1:out}, ${2:array1}, ${3:array2}, ${4:nx}, ${5:ny}, ${6:nz} );
+endsnippet
+
+snippet upm1 "pad1d" b
+utils_padmodel1d ( ${1:model}, ${2:padded}, ${3:n1}, ${4:pad1} );
+endsnippet
+
+snippet upm2 "pad2d" 
+utils_padmodel2d ( ${1:model}, ${2:padded}, ${3:nx}, ${4:nz}, ${5:padx}, ${6:padz} );
+endsnippet
+
+snippet upm3 "pad3d" 
+utils_padmodel3d ( ${1:model}, ${2:padded}, ${3:nx}, ${4:ny}, ${5:nz}, ${6:padx}, ${7:pady}, ${8:padz} );
+endsnippet
+
+snippet uupm1 "unpad1d" b
+utils_unpadmodel1d ( ${1:model}, ${2:padded}, ${3:n1}, ${4:pad1} );
+endsnippet
+
+snippet uupm2 "unpad2d" 
+utils_unpadmodel2d ( ${1:model}, ${2:padded}, ${3:nx}, ${4:nz}, ${5:padx}, ${6:padz} );
+endsnippet
+
+snippet uupm3 "unpad3d" 
+utils_unpadmodel3d ( ${1:model}, ${2:padded}, ${3:nx}, ${4:ny}, ${5:nz}, ${6:padx}, ${7:pady}, ${8:padz} );
+endsnippet
+
+snippet ulb "loadbar" 
+utils_loadbar ( ${1:x}, ${2:n}, ${3:r}, ${4:w}  );
+endsnippet
+
+snippet ufo "fopen" 
+utils_fopen ( ${1:filename}, ${2:state} );
+endsnippet
+
+snippet upt "print_title" 
+utils_print_titlename ( ${1:titlename}, ${2:des} );
+endsnippet
+
+snippet u1t2 "one to two" 
+utils_array_one2two ( ${1:one}, ${2:two}, ${3:nx}, ${4:nz} );
+endsnippet
+
+snippet u2t1 "two to one" 
+utils_array_two2one ( ${1:one}, ${2:two}, ${3:nx}, ${4:nz} );
+endsnippet
+
+snippet u1t3 "one to three" 
+utils_array_one2three ( ${1:one}, ${2:three}, ${3:nx}, ${4:ny}, ${5:nz} );
+endsnippet
+
+snippet u3t1 "three to one" 
+utils_array_three2one ( ${1:one}, ${2:three}, ${3:nx}, ${4:ny}, ${5:nz} );
 endsnippet

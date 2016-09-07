@@ -29,9 +29,16 @@ snippet fig "Figure environment" b
 \begin{figure}[${2:htpb}]
 	\centering
 	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
-	\caption{${4/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${4/(\w+)\.\w+/$1/}}
+	\caption{${5}}
+	\label{${6}}
 \end{figure}
+endsnippet
+
+snippet subfig "subfigure environment" b
+\subfigure[${1:b}]{
+	\includegraphics[width=${2:0.3}\textwidth]{${3:name.ext}}
+	\label{${4}}
+}
 endsnippet
 
 snippet enum "Enumerate" b
@@ -120,3 +127,12 @@ snippet lp "Long parenthesis"
 endsnippet
 # vim:ft=snippets:
 
+
+#####################################
+
+snippet frame "frame"
+\begin{frame}
+	\frametitle{${1}}
+	${2}
+\end{frame}
+endsnippet
