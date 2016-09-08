@@ -4,6 +4,14 @@
 
 priority -50
 
+snippet inc "include" 
+#include <${1}>
+endsnippet
+
+snippet incc "include" 
+#include "${1}"
+endsnippet
+
 snippet def "#define ..."
 #define ${1}
 endsnippet
@@ -159,6 +167,20 @@ for (${2:i} = 0; $2 < ${1:count}; $2++) {
 }
 endsnippet
 
+snippet swh "switch" 
+switch ( ${1:state} ) {
+	case <+1+>:
+		<++>
+	    break;
+	case <+2+>:
+		<++>
+	    break;
+	default:
+		<++>
+	    break;
+}
+endsnippet
+
 ##################Madagascar#####################
 
 snippet mmain "main in madagascar" b
@@ -302,7 +324,7 @@ utils_unpadmodel3d ( ${1:model}, ${2:padded}, ${3:nx}, ${4:ny}, ${5:nz}, ${6:pad
 endsnippet
 
 snippet ulb "loadbar" 
-utils_loadbar ( ${1:x}, ${2:n}, ${3:r}, ${4:w}  );
+utils_loadbar ( ${1:x}, ${2:n}, ${3:r}, ${4:w} );
 endsnippet
 
 snippet ufo "fopen" 
