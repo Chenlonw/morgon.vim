@@ -244,7 +244,14 @@ func! CompileRunGcc()
 endfunc                               
 augroup END 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+augroup GNUPLOT
+	autocmd Filetype gnuplot : nmap <C-g> : call CompileRunGnuplot()<CR>
+	func! CompileRunGnuplot()
+		exec "w"
+		exec "!gnuplot % "
+	endfunc                               
+augroup END 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Miscellaneous
 map <F4> :call CompileMake()<CR>
 func! CompileMake()
@@ -256,6 +263,11 @@ autocmd Filetype sh : nmap <F3> : call CompileShell()<CR>
 func! CompileShell()
     exec "w"
     exec "! sh %<.sh"
+endfunc
+
+nmap <C-q> :call Savefile()<CR>
+func! Savefile()
+    exec "w"
 endfunc
 
 func! MyToHtml(line1, line2)

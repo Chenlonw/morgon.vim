@@ -130,9 +130,74 @@ endsnippet
 
 #####################################
 
+snippet col "columns"
+\begin{columns}[c]
+	\column{${1:size}\textwidth}
+\end{columns}
+endsnippet
+
 snippet frame "frame"
 \begin{frame}
 	\frametitle{${1}}
 	${2}
 \end{frame}
+endsnippet
+
+snippet Tbeamer "template for beamer" 
+\documentclass{beamer}
+
+\mode<presentation> {
+	%\usetheme{classic}     %good
+	\usetheme{JuanLesPins}  %good
+	%\usecolortheme{rose}   %good
+	\usecolortheme{whale}   %good
+	\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+	%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+	%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx}  % Allows including images
+\usepackage{subfigure} % Allows including images
+\usepackage{booktabs}  % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{ragged2e}  
+\usepackage{IEEEtrantools,stackengine}
+\stackMath
+\usepackage[absolute,overlay]{textpos}
+
+%%suggested from web site
+\usefonttheme[onlymath]{serif}
+%\usepackage{fontspec} 
+%\setsansfont[Ligatures={Common}]{Futura}
+%\setmonofont[Scale=0.8]{Monaco} 
+%-----------------------------
+\renewcommand{\raggedright}{\leftskip=0pt \rightskip=0pt plus 0cm}
+\setbeamertemplate{caption}[numbered]
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[<+short title+> -- Chenlong Wang et.al.]{<+Title+>} % The short title appears at the bottom of every slide, the full title is only on the title page 
+\author{Chenlong Wang} % Your name
+\institute[Tongji] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{	
+	School of Ocean and Earth Science, Tongji University\\ % Your institution for the title page
+}
+\date{\scriptsize{22 May, 2016}} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+	\titlepage 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Overview} 
+	\tableofcontents 
+\end{frame}
+
+\section{<++>} 
+\subsection{<++>}
+
+\end{document}
 endsnippet

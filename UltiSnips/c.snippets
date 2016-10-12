@@ -201,7 +201,7 @@ int main ( int argc, char *argv[] )
 	<+Fout+> = sf_output("out");
 
 	/* Read arguments from command lines */
-	if ( !sf_getbool( "verb" , &verb ) ) verb = 1;
+	if ( !sf_getbool( "verb" , &verb ) ) verb = 0;
 	
 	/* get the axis */
 	A1 = sf_iaxa( <+Fin+>, 1);
