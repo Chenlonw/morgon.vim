@@ -232,6 +232,8 @@ autocmd Filetype c : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype cpp : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype c : nmap <C-s> :call CompileSCons()<CR>
 autocmd Filetype cpp : nmap <C-s> :call CompileSCons()<CR>
+autocmd Filetype c : imap <C-b> ()<Esc>i
+autocmd Filetype cpp : imap <C-b> ()<Esc>i
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
