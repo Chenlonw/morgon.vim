@@ -125,6 +125,18 @@ endsnippet
 snippet lp "Long parenthesis"
 \left(${1:${VISUAL:contents}}\right)$0
 endsnippet
+
+snippet ca "\citeA{}" w
+\citeA{${1}} ${2}
+endsnippet
+
+snippet cb "\citeB{}" w
+\citeB{${1}} ${2}
+endsnippet
+
+snippet vs "\vspace{}" w
+\vspace{${1:1ex}} ${2}
+endsnippet
 # vim:ft=snippets:
 
 
@@ -154,6 +166,8 @@ endsnippet
 snippet ref "ref{}"
 \ref{${1}}${2}
 endsnippet
+
+
 
 
 snippet Tbeamer "template for beamer" 
