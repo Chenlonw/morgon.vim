@@ -39,7 +39,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 
 "Plugin for evernote and vim
-Plugin 'kakkyz81/evervim'
+"Plugin 'kakkyz81/evervim'
 
 "Plugin for gramma check
 Plugin 'LanguageTool'

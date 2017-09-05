@@ -94,12 +94,6 @@ func! CancleComment()
 	endif 
 endfunc
 
-"set file type as Python
-nmap <C-p> :call Setfilepython()<CR>
-func! Setfilepython()
-    exec "setf python"
-endfunc
-
 autocmd BufNewFile *.cc,*.cpp,*.c,*.sh exec ":call SetTitleChlw()"
 func! SetTitleChlw()
     if &filetype == 'sh'
@@ -169,6 +163,13 @@ autocmd Filetype python : nmap <S-r> : call InsertResult()<CR>
 autocmd Filetype python : nmap <S-p> : call InsertPlot()<CR>
 autocmd Filetype python : nmap <S-f> : call InsertFlow()<CR>
 autocmd Filetype python : nmap <C-s> : call CompileSCons()<CR>
+autocmd Filetype python : nmap <C-p> : call CompilePython()<CR>
+
+"set file type as Python
+func! CompilePython()
+    exec "w"
+    exec "! python %"
+endfunc
 
 func! InsertFlow() 
 	exec "normal o\<CR>Flow('<++>',\<CR>'<++>',\<CR>'''\<CR><++>\<CR>'''\<CR>)\<Esc>\<Up>\<Up>\<Up>\<Up>\<Up>\<Up>"
