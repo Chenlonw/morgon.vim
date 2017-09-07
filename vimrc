@@ -44,8 +44,8 @@ Plugin 'tpope/vim-fugitive'
 "Plugin for gramma check
 Plugin 'LanguageTool'
 
-"Plugin 'scrooloose/syntastic'
 "syntastic check
+Plugin 'scrooloose/syntastic'
 
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -112,5 +112,16 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 let g:Tex_CompileRule_pdf = 'pdflatex -interaction=nonstopmode -file-line-error-style $*'
+
+
+"syntastic  
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "========================================

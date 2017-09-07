@@ -33,7 +33,7 @@ cd ~/.vim/bundle/YouCompleteMe
 + LanguageTool (gramma checker)
 + Ag.vim Sliver Searcher
 + UltiSnip (snippets)
-
++ syntastic (syntastic checker)
 ---
 
 ### My customized shortcuts
