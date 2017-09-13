@@ -29,7 +29,6 @@ colo desert
 set textwidth=100
 set gfn=Monospace\ 13
 autocmd InsertEnter * se cul    "under_line of current line
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ General Customization
 vmap <C-r> :call InsertComment()<CR>
