@@ -224,6 +224,12 @@ endfunc
 
 augroup END 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup JSON
+autocmd Filetype json : nmap <C-j> : call Formatjson()<CR>
+func! Formatjson()
+    exec "%!python -m json.tool"
+endfunc                               
+augroup END 
 
 """customize command in Filetype C or Cpp
 augroup C

@@ -45,7 +45,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'LanguageTool'
 
 "syntastic check
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 
 "Plugin 'Yggdroot/indentLine'
 "Plugin 'nathanaelkane/vim-indent-guides'
@@ -59,6 +59,7 @@ Plugin 'rking/ag.vim'
 
 Plugin 'sirver/ultisnips'
 
+Plugin 'elzr/vim-json'
 
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -119,8 +120,19 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
 let g:syntastic_auto_loc_list = 1
+
+au! BufRead,BufNewFile *.json set filetype=json
+augroup json_autocmd
+  autocmd!
+  autocmd FileType json set autoindent
+  autocmd FileType json set formatoptions=tcq2l
+  autocmd FileType json set textwidth=78 shiftwidth=2
+  autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+  autocmd FileType json set foldmethod=syntax
+augroup END
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 5
 
@@ -131,6 +143,7 @@ let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 highlight SyntasticErrorSign guifg=white guibg=black
 
+let python_highlight_all = 1
 "========================================
 
 
