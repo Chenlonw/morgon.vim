@@ -36,6 +36,9 @@ func! InsertComment()
 	if &filetype=='c'
 		exec "s/^/\\/\\//"
 	endif 
+	if &filetype=='cuda'
+		exec "s/^/\\/\\//"
+	endif 
 	if &filetype=='cpp'
 		exec "s/^/\\/\\//"
 	endif 
@@ -65,6 +68,9 @@ endfunc
 vmap <C-f> :call CancleComment()<CR>
 func! CancleComment()
 	if &filetype=='c'
+		exec "s/\\/\\///"
+	endif 
+	if &filetype=='cuda'
 		exec "s/\\/\\///"
 	endif 
 	if &filetype=='cpp'
@@ -231,11 +237,12 @@ func! Formatjson()
 endfunc                               
 augroup END 
 
-"""customize command in Filetype C or Cpp
+"""customize command in Filetype C or Cpp or cuda
 augroup C
 "need with c.vim
 autocmd Filetype c : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype cpp : nmap <F5> : call CompileRunGcc()<CR>
+autocmd Filetype cuda : nmap <F5> : call CompileRunGcc()<CR>
 autocmd Filetype c : nmap <C-s> :call CompileSCons()<CR>
 autocmd Filetype cpp : nmap <C-s> :call CompileSCons()<CR>
 autocmd Filetype c : imap <C-b> ()<Esc>i
@@ -245,9 +252,15 @@ func! CompileRunGcc()
     if &filetype == 'c'
         exec "!gcc % -o %<"
         exec "! ./%<"
+        exec "! rm ./%<"
     elseif &filetype == 'cc'
         exec "!g++ % -o %<"
         exec "! ./%<"
+        exec "! rm ./%<"
+    elseif &filetype == 'cuda'
+        exec "!nvcc % -o %<"
+        exec "! ./%<"
+        exec "! rm ./%<"
     endif
 endfunc                               
 augroup END 

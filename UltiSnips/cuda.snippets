@@ -1,0 +1,297 @@
+snippet inc "include" 
+#include <${1}>
+endsnippet
+
+snippet main "main() (main)"
+int main(int argc, char *argv[])
+{
+	${VISUAL}${0}
+	return 0;
+}
+endsnippet
+
+snippet fprintf "fprintf ..."
+fprintf(${1:stderr}, "${2:%f}\n"${2/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$3${2/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet printf "printf .. (printf)"
+printf("${1:%f}\n"${1/([^%]|%%)*(%.)?.*/(?2:, :\);)/}$2${1/([^%]|%%)*(%.)?.*/(?2:\);)/}
+endsnippet
+
+snippet ! "debug"
+fprintf(stderr,"!!!! This is a debug index !!!!\n");
+endsnippet
+
+snippet todo "TODO" b
+/* :TODO: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet bug "BUG" b
+/* :BUG: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet warn "warning" b
+/* :WARNING: `date +%d`.`date +%m`.`date +%Y`: chenlonw: ${1:Description} */
+endsnippet
+
+snippet for "for loop (for)"
+for (${2:i} = 0; $2 < ${1:count}; $2++) {
+	${3}
+}
+endsnippet
+
+snippet for2 "for for loop (for)" b
+for (${2:i} = 0; $2 < ${1:count}; $2++) {
+	for (${4:j} = 0; $4 < ${3:count}; $4++) {
+	${VISUAL}${0}
+	}
+}
+endsnippet
+
+snippet if "statement if"
+if (${1:/* condition */}) {
+	${VISUAL}${0}
+}
+endsnippet
+
+##############################cuda related##############################
+snippet cudamalloc "cudaMalloc" b
+CUDA_CHECK(cudaMalloc((float **)&${1:pointer}, ${2:nBytes}));
+endsnippet
+
+snippet cudamemcpy "cudaMemcpy" b
+CUDA_CHECK(cudaMemcpy(${1:to}, ${2:to}, ${3:nBytes}, ${4:cudahtd}));
+endsnippet
+
+snippet cudamemset "cudaMemset" b
+CUDA_CHECK(cudaMemset(${1:pointer}, ${2:value}, ${3:nBytes}));
+endsnippet
+
+snippet cudafree "cudaFree" b
+CUDA_CHECK(cudaFree(${1:pointer}));
+endsnippet
+
+snippet cudahtd "cudaMemcpyHostToDevice" b
+cudaMemcpyHostToDevice
+endsnippet
+
+snippet cudadth "cudaMemcpyDeviceToHost" b
+cudaMemcpyDeviceToHost
+endsnippet
+
+snippet cudahth "cudaMemcpyHostToHost" b
+cudaMemcpyHostToHost
+endsnippet
+
+snippet cudahth "cudaMemcpyDeviceToDevice" b
+cudaMemcpyDeviceToDevice
+endsnippet
+
+
+snippet cudareset "cudadevicereset" b
+cuda_check(cudadevicereset());
+endsnippet
+
+
+snippet cudalaunch "kernel launch" b
+${1:function name} <<< grid, block >>> (${2});
+endsnippet
+
+
+snippet cudasyncall "cudaDeviceSynchronize" b
+cuda_check(cudaDeviceSynchronize());
+endsnippet
+
+snippet cudasyncone "__syncthreads" b
+__syncthreads();
+endsnippet
+
+##############################code snippet##############################
+snippet cuda1D1D "globalIndex" b
+__device__ int getGlobalIdx_1D_1D()
+{
+	return blockIdx.x * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda1D2D "globalIndex" b
+__device__ int getGlobalIdx_1D_2D()
+{
+	return blockIdx.x * blockDim.x * blockDim.y + threadIdx.y * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda1D3D "globalIndex" b
+__device__ int getGlobalIdx_1D_3D()
+{
+	return blockIdx.x * blockDim.x * blockDim.y * blockDim.z \
+	+ threadIdx.z * blockDim.x * blockDim.y \
+	+ threadIdx.y * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda2D1D "globalIndex" b
+__device__ int getGlobalIdx_2D_1D()
+{
+	int blockId = blockIdx.y * gridDim.x + blockIdx.x;
+	return blockId * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda2D2D "globalIndex" b
+__device__ int getGlobalIdx_2D_2D()
+{
+	int blockId = blockIdx.y * gridDim.x + blockIdx.x;
+	return blockId * blockDim.x * blockDim.y + threadIdx.y * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda2D3D "globalIndex" b
+__device__ int getGlobalIdx_2D_3D()
+{
+	int blockId = blockIdx.y * gridDim.x + blockIdx.x;
+	int threadId = blockId * blockDim.x * blockDim.y * blockDim.z \
+	+ threadIdx.z * blockDim.x * blockDim.y 
+	+ threadIdx.y * blockDim.x + threadIdx.x
+	return threadId;
+}
+endsnippet
+
+snippet cuda3D1D "globalIndex" b
+__device__ int getGlobalIdx_3D_1D()
+{
+	int blockId = blockIdx.z * gridDim.x * gridDim.y + blockIdx.y * gridDim.x + blockIdx.x;
+	int threadId = blockId * blockDim.x + threadIdx.x;
+	return threadId;
+}
+endsnippet
+
+snippet cuda3D2D "globalIndex" b
+__device__ int getGlobalIdx_3D_2D()
+{
+	int blockId = blockIdx.z * gridDim.x * gridDim.y + blockIdx.y * gridDim.x + blockIdx.x;
+	return blockId * blockDim.x * blockDim.y + threadIdx.y * blockDim.x + threadIdx.x;
+}
+endsnippet
+
+snippet cuda3D3D "globalIndex" b
+__device__ int getGlobalIdx_3D_3D()
+{
+	int blockId = blockIdx.z * gridDim.x * gridDim.y + blockIdx.y * gridDim.x + blockIdx.x;
+	int threadId = blockId * blockDim.x * blockDim.y * blockDim.z \
+	+ threadIdx.z * blockDim.x * blockDim.y 
+	+ threadIdx.y * blockDim.x + threadIdx.x
+	return threadId;
+}
+endsnippet
+
+snippet check "cuda_check" b
+#define CUDA_CHECK(call)                                                       \
+{                                                                              \
+    const cudaError_t error = call;                                            \
+    if (error != cudaSuccess)                                                  \
+    {                                                                          \
+        fprintf(stderr, "Error: %s:%d, ", __FILE__, __LINE__);                 \
+        fprintf(stderr, "code: %d, reason: %s\n", error,                       \
+                cudaGetErrorString(error));                                    \
+        exit(1);                                                               \
+    }                                                                          \
+}
+endsnippet
+
+snippet best "determining best gpu" b
+int numDevice = 0;
+CUDA_CHECK(cudaGetDeviceCount(&numDevice));
+
+if (numDevice > 1)
+{
+	cudaDeviceProp props;
+	int maxMultiprocessors = 0, maxDevice = 0;
+	for (int iDevice = 0; iDevice < numDevice; iDevice++) {
+		CUDA_CHECK(cudaGetDeviceProperties(&props, iDevice));
+		if (maxMultiprocessors < props.multiProcessorCount){
+			maxMultiprocessors = props.multiProcessorCount;
+			maxDevice = iDevice;
+		}
+	}
+	CUDA_CHECK(cudaSetDevice(maxDevice));
+	printf("Using Device %d: %s with %d processors\n", maxDevice, props.name, \
+			maxMultiprocessors);
+}
+else{
+	int iDevice = 0;
+	cudaDeviceProp props;
+	CUDA_CHECK(cudaGetDeviceProperties(&props, iDevice));
+	printf("Using Device %d: %s with %d processors\n", iDevice, props.name, \
+			props.multiProcessorCount);
+}
+endsnippet
+
+snippet time "timing it" b
+double cpuSecond()
+{
+	struct timeval tp;
+	gettimeofday(&tp, NULL);
+	return ((double)(tp.tv_sec)+(double)tp.tv_usec*1.e-6);
+}
+endsnippet
+
+snippet info "query gpu info" b
+int deviceCount = 0;
+cudaError_t error_id = cudaGetDeviceCount(&deviceCount);
+
+if (error_id != cudaSuccess) {
+	printf(" cudaGetDeviceCount returned %d\n-> %s\n",
+			(int)error_id, cudaGetErrorString(error_id));
+	printf(" Result = FAIL\n");
+	exit(EXIT_FAILURE);
+}
+if (deviceCount == 0) {
+	printf(" There are no available device(s) that support CUDA\n");
+} else {
+	printf(" Detected %d CUDA Capable device(s)\n", deviceCount);
+}
+int dev, driverVersion = 0, runtimeVersion = 0;
+
+cudaDeviceProp deviceProp;
+if (deviceCount > 1) {
+	int maxMultiprocessors = 0, maxDevice = 0;
+	for (int device=0; device<deviceCount; device++) {
+		cudaGetDeviceProperties(&deviceProp, dev);
+		if (maxMultiprocessors < deviceProp.multiProcessorCount) {
+			maxMultiprocessors = deviceProp.multiProcessorCount;
+			maxDevice = device;
+		}
+	}
+	cudaSetDevice(maxDevice);
+}
+printf(" Device %d: \"%s\"\n", dev, deviceProp.name);
+cudaDriverGetVersion(&driverVersion);
+cudaRuntimeGetVersion(&runtimeVersion);
+printf(" CUDA Driver Version / Runtime Version %d.%d / %d.%d\n", driverVersion/1000, (driverVersion%100)/10, runtimeVersion/1000, (runtimeVersion%100)/10);
+printf(" CUDA Capability Major/Minor version number: %d.%d\n", deviceProp.major, deviceProp.minor);
+printf(" Total amount of global memory: %.2f MBytes (%llu bytes)\n", (float)deviceProp.totalGlobalMem/(pow(1024.0,3)), (unsigned long long) deviceProp.totalGlobalMem);
+printf(" GPU Clock rate: %.0f MHz (%0.2f GHz)\n", deviceProp.clockRate * 1e-3f, deviceProp.clockRate * 1e-6f);
+printf(" Memory Clock rate: %.0f Mhz\n", deviceProp.memoryClockRate * 1e-3f);
+printf(" Memory Bus Width: %d-bit\n", deviceProp.memoryBusWidth);
+if (deviceProp.l2CacheSize) {
+	printf(" L2 Cache Size: %d bytes\n", deviceProp.l2CacheSize);
+}
+printf(" Max Texture Dimension Size (x,y,z) " " 1D=(%d), 2D=(%d,%d), 3D=(%d,%d,%d)\n", deviceProp.maxTexture1D , deviceProp.maxTexture2D[0], deviceProp.maxTexture2D[1],
+		deviceProp.maxTexture3D[0], deviceProp.maxTexture3D[1], deviceProp.maxTexture3D[2]);
+printf(" Max Layered Texture Size (dim) x layers 1D=(%d) x %d, 2D=(%d,%d) x %d\n",
+		deviceProp.maxTexture1DLayered[0], deviceProp.maxTexture1DLayered[1],
+		deviceProp.maxTexture2DLayered[0], deviceProp.maxTexture2DLayered[1],
+		deviceProp.maxTexture2DLayered[2]);
+printf(" Total amount of constant memory: %lu bytes \n", deviceProp.totalConstMem);
+printf(" Total amount of shared memory per block: %lu bytes \n", deviceProp.sharedMemPerBlock);
+printf(" Total number of registers available per block: %d\n", deviceProp.regsPerBlock);
+printf(" Warp size: %d\n", deviceProp.warpSize);
+printf(" Maximum number of threads per multiprocessor: %d \n", deviceProp.maxThreadsPerMultiProcessor);
+printf(" Maximum number of threads per block: %d \n", deviceProp.maxThreadsPerBlock);
+printf(" Maximum sizes of each dimension of a block: %d x %d x %d\n", deviceProp.maxThreadsDim[0], deviceProp.maxThreadsDim[1], deviceProp.maxThreadsDim[2]);
+printf(" Maximum sizes of each dimension of a grid: %d x %d x %d\n", deviceProp.maxGridSize[0], deviceProp.maxGridSize[1], deviceProp.maxGridSize[2]);
+printf(" Maximum memory pitch: %lu bytes\n", deviceProp.memPitch);
+
+return(0);
+endsnippet
